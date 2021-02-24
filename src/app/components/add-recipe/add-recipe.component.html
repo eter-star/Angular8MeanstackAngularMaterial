@@ -14,7 +14,7 @@
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Recipe name" formControlName="recipe_name">
           <mat-error *ngIf="handleError('recipe_name', 'required')">
-            You must provide a<strong>recipe name</strong>
+            You must provide a<strong> recipe name</strong>
           </mat-error>
         </mat-form-field>
 
@@ -22,9 +22,22 @@
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Recipe description" formControlName="recipe_description">
           <mat-error *ngIf="handleError('recipe_description', 'required')">
-            You must provide a<strong>recipe description</strong>
+            You must provide a<strong> recipe description</strong>
           </mat-error>
         </mat-form-field>
+
+        <!-- Section -->
+        <mat-form-field>
+          <mat-label>Recipe category</mat-label>
+          <mat-select [(value)]="selected" formControlName="recipe_category">
+            <mat-option [value]="categoryArray" *ngFor="let categoryArray of CategoryArrays">{{categoryArray}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="handleError('recipe_category', 'required')">
+            Food Category is required
+          </mat-error>
+        </mat-form-field>
+
 
       </div>
     </mat-card>

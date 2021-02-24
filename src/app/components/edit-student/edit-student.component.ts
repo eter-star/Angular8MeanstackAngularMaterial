@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { ApiService } from './../../shared/api.service';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface Subject {
   name: string;
@@ -37,7 +37,7 @@ export class EditStudentComponent implements OnInit {
     private ngZone: NgZone,
     private actRoute: ActivatedRoute,
     private studentApi: ApiService
-  ) { 
+  ) {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.studentApi.GetStudent(id).subscribe(data => {
       console.log(data.subjects)
@@ -49,8 +49,8 @@ export class EditStudentComponent implements OnInit {
         subjects: [data.subjects],
         dob: [data.dob, [Validators.required]],
         gender: [data.gender]
-      })      
-    })    
+      })
+    })
   }
 
   /* Reactive book form */
@@ -110,5 +110,5 @@ export class EditStudentComponent implements OnInit {
       });
     }
   }
-  
+
 }

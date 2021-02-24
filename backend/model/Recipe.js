@@ -9,7 +9,10 @@ let Recipe = new Schema({
   },
   recipe_description: {
     type: String
-  }
+  },
+  recipe_category: {
+    type: String
+  },
 }, {
   collection: 'recipes'
 })
