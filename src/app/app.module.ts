@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
+import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
     StudentsListComponent,
     AddRecipeComponent,
     EditRecipeComponent,
-    RecipesListComponent
+    RecipesListComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Student } from './student';
+import { Recipe } from './recipe';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -18,6 +19,15 @@ export class ApiService {
   // Add student
   AddStudent(data: Student): Observable<any> {
     let API_URL = `${this.endpoint}/add-student`;
+    return this.http.post(API_URL, data)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
+  // Add recipe
+  AddRecipe(data: Recipe): Observable<any> {
+    let API_URL = `${this.endpoint}/add-recipe`;
     return this.http.post(API_URL, data)
       .pipe(
         catchError(this.errorMgmt)
@@ -59,7 +69,7 @@ export class ApiService {
       )
   }
 
-  // Error handling 
+  // Error handling
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
