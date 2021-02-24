@@ -47,7 +47,7 @@ export class AddStudentComponent implements OnInit {
       subjects: [this.subjectArray],
       dob: ['', [Validators.required]],
       gender: ['Male']
-    })
+    });
   }
 
   /* Add dynamic languages */
@@ -56,7 +56,7 @@ export class AddStudentComponent implements OnInit {
     const value = event.value;
     // Add language
     if ((value || '').trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() })
+      this.subjectArray.push({ name: value.trim() });
     }
     // Reset the input value
     if (input) {
@@ -70,7 +70,7 @@ export class AddStudentComponent implements OnInit {
     if (index >= 0) {
       this.subjectArray.splice(index, 1);
     }
-  }  
+  }
 
   /* Date */
   formatDate(e) {
@@ -78,12 +78,12 @@ export class AddStudentComponent implements OnInit {
     this.studentForm.get('dob').setValue(convertDate, {
       onlyself: true
     })
-  }  
+  }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
     return this.studentForm.controls[controlName].hasError(errorName);
-  }  
+  }
 
   /* Submit book */
   submitStudentForm() {
