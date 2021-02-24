@@ -26,6 +26,12 @@ import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.compon
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [

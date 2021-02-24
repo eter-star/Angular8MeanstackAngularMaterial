@@ -1,10 +1,11 @@
 import {Router} from '@angular/router';
-import {Component, OnInit, ViewChild, NgZone} from '@angular/core';
+import {Component, OnInit, ViewChild, NgZone, ElementRef} from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {ApiService} from './../../shared/api.service';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {Subject} from '../add-student/add-student.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-recipe',
@@ -18,22 +19,55 @@ export class AddRecipeComponent implements OnInit {
   addOnBlur = true;
   @ViewChild('chipList', {static: true}) chipList;
   @ViewChild('resetRecipeForm', {static: true}) myNgForm;
+  @ViewChild('fileInput', {static: true}) fileInput: ElementRef;
+  fileAttr = 'Choose File';
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   recipeForm: FormGroup;
   subjectArray: Subject[] = [];
   CategoryArrays: any = ['Soups', 'Salads', 'Deserts', 'Sandwiches/Wraps', 'Vegetarian', 'Cold Dish'];
-
+  imageSrc: string;
+  myForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    file: new FormControl('', [Validators.required]),
+    fileSource: new FormControl('', [Validators.required])
+  });
 
   constructor(
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private recipeApi: ApiService
+    private recipeApi: ApiService,
+    private http: HttpClient
   ) {
-  }
+  };
 
   ngOnInit() {
     this.submitBookForm();
+  }
+
+  uploadFileEvt(imgFile: any) {
+    if (imgFile.target.files && imgFile.target.files[0]) {
+      this.fileAttr = '';
+      Array.from(imgFile.target.files).forEach((file: File) => {
+        this.fileAttr += file.name + ' - ';
+      });
+
+      // HTML5 FileReader API
+      let reader = new FileReader();
+      reader.onload = (e: any) => {
+        let image = new Image();
+        image.src = e.target.result;
+        image.onload = rs => {
+          let imgBase64Path = e.target.result;
+        };
+      };
+      reader.readAsDataURL(imgFile.target.files[0]);
+
+      // Reset if duplicate image uploaded again
+      this.fileInput.nativeElement.value = "";
+    } else {
+      this.fileAttr = 'Choose File';
+    }
   }
 
   /* Reactive book form */
