@@ -7,6 +7,7 @@ import { StudentsListComponent } from './components/students-list/students-list.
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import {RecipesListComponent} from './components/recipes-list/recipes-list.component';
 import {ShopCartComponent} from './components/shop-cart/shop-cart.component';
+import {FileUploadComponent} from './components/file-upload/file-upload.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'add-student' },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'students-list', component: StudentsListComponent },
   { path: 'add-recipe', component: AddRecipeComponent },
   { path: 'recipes-list', component: RecipesListComponent },
-  { path: 'shop-cart', component: ShopCartComponent }
+  { path: 'shop-cart', component: ShopCartComponent },
+  { path: 'file-upload', component: FileUploadComponent }
 
 ];
 

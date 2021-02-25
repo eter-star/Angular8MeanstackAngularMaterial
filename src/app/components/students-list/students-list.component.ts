@@ -23,7 +23,7 @@ export class StudentsListComponent implements OnInit {
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       }, 0);
-    })    
+    })
   }
 
   ngOnInit() { }
@@ -33,7 +33,7 @@ export class StudentsListComponent implements OnInit {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
-      this.studentApi.DeleteStudent(e._id).subscribe()
+      this.studentApi.DeleteStudent(e._id).subscribe();
     }
   }
 

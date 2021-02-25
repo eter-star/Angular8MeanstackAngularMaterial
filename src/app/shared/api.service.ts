@@ -36,7 +36,12 @@ export class ApiService {
 
   // Get all students
   GetStudents() {
-    return this.http.get(`${this.endpoint}`);
+    return this.http.get(`${this.endpoint}/`);
+  }
+
+  // Get all recipes
+  GetRecipes() {
+    return this.http.get(`${this.endpoint}/recipes/`);
   }
 
   // Get student
@@ -63,6 +68,15 @@ export class ApiService {
   // Delete student
   DeleteStudent(id): Observable<any> {
     var API_URL = `${this.endpoint}/delete-student/${id}`;
+    return this.http.delete(API_URL)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
+  // Delete recipe
+  DeleteRecipe(id): Observable<any> {
+    var API_URL = `${this.endpoint}/delete-recipe/${id}`;
     return this.http.delete(API_URL)
       .pipe(
         catchError(this.errorMgmt)

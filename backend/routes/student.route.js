@@ -4,10 +4,24 @@ const studentRoute = express.Router();
 
 // Student model
 let Student = require('../model/Student');
+//Recipe model
+let Recipe = require('../model/Recipe');
+
 
 // Add Student
 studentRoute.route('/add-student').post((req, res, next) => {
   Student.create(req.body, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+});
+
+// Add Recipoe
+studentRoute.route('/add-recipe').post((req, res, next) => {
+  Recipe.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -27,9 +41,31 @@ studentRoute.route('/').get((req, res) => {
   })
 })
 
+// Get all recipes
+studentRoute.route('/recipes/').get((req, res) => {
+  Recipe.find((error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+})
+
 // Get single student
 studentRoute.route('/read-student/:id').get((req, res) => {
   Student.findById(req.params.id, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+})
+
+// Get single recipe
+studentRoute.route('/read-recipe/:id').get((req, res) => {
+  Recipe.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -54,6 +90,22 @@ studentRoute.route('/update-student/:id').put((req, res, next) => {
   })
 })
 
+// Update recipe
+studentRoute.route('/update-recipe/:id').put((req, res, next) => {
+  Recipe.findByIdAndUpdate(req.params.id, {
+    $set: req.body
+  }, (error, data) => {
+    if (error) {
+      return next(error);
+      console.log(error)
+    } else {
+      res.json(data)
+      console.log('Recipe successfully updated!')
+    }
+  })
+})
+
+
 // Delete student
 studentRoute.route('/delete-student/:id').delete((req, res, next) => {
   Student.findByIdAndRemove(req.params.id, (error, data) => {
@@ -66,5 +118,19 @@ studentRoute.route('/delete-student/:id').delete((req, res, next) => {
     }
   })
 })
+
+// Delete recipe
+studentRoute.route('/delete-recipe/:id').delete((req, res, next) => {
+  Student.findByIdAndRemove(req.params.id, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.status(200).json({
+        msg: data
+      })
+    }
+  })
+})
+
 
 module.exports = studentRoute;

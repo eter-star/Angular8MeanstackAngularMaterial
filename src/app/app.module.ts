@@ -25,12 +25,7 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
 import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
-
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 @NgModule({
@@ -42,7 +37,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AddRecipeComponent,
     EditRecipeComponent,
     RecipesListComponent,
-    ShopCartComponent
+    ShopCartComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

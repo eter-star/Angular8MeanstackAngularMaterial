@@ -25,12 +25,7 @@ export class AddRecipeComponent implements OnInit {
   recipeForm: FormGroup;
   subjectArray: Subject[] = [];
   CategoryArrays: any = ['Soups', 'Salads', 'Deserts', 'Sandwiches/Wraps', 'Vegetarian', 'Cold Dish'];
-  imageSrc: string;
-  myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
-  });
+
 
   constructor(
     public fb: FormBuilder,
