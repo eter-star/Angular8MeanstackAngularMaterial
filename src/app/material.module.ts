@@ -19,13 +19,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
 
 const materialModules = [
   MatIconModule,
   MatButtonModule,
   MatInputModule,
   MatFormFieldModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatCardModule
 ];
 
 @NgModule({

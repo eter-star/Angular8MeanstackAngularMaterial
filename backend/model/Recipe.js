@@ -13,6 +13,9 @@ let Recipe = new Schema({
   recipe_category: {
     type: String
   },
+  recipe_image:{
+    type: Buffer
+  }
 }, {
   collection: 'recipes'
 })

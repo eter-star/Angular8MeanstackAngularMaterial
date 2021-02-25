@@ -11,6 +11,7 @@ import { StudentsListComponent } from './components/students-list/students-list.
 /* Angular material */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
+import {MatCardModule} from '@angular/material/card';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 /* Angular 8 http service */
@@ -21,6 +22,7 @@ import { ApiService } from './shared/api.service';
 
 /* Reactive form services in Angular 8 */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
@@ -47,7 +49,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     AngularMaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
