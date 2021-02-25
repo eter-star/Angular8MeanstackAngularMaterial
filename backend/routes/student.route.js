@@ -121,7 +121,7 @@ studentRoute.route('/delete-student/:id').delete((req, res, next) => {
 
 // Delete recipe
 studentRoute.route('/delete-recipe/:id').delete((req, res, next) => {
-  Student.findByIdAndRemove(req.params.id, (error, data) => {
+  Recipe.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {

@@ -28,6 +28,7 @@ import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.compon
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import {MatMenuModule} from '@angular/material';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],

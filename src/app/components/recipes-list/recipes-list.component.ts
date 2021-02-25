@@ -13,7 +13,7 @@ export class RecipesListComponent implements OnInit {
   RecipeData: any = [];
   dataSource: MatTableDataSource<Recipe>;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  displayedColumns: string[] = ['_id', 'recipe_name', 'recipe_description', 'recipe_category', 'tags', 'action'];
+  displayedColumns: string[] = ['_id', 'recipe_name', 'recipe_description', 'recipe_category', 'action'];
 
   constructor(private recipeApi: ApiService) {
     this.recipeApi.GetRecipes().subscribe(data => {

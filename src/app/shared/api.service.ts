@@ -41,7 +41,7 @@ export class ApiService {
 
   // Get all recipes
   GetRecipes() {
-    return this.http.get(`${this.endpoint}/recipes/`);
+    return this.http.get(`${this.endpoint}/recipes`);
   }
 
   // Get student
@@ -55,10 +55,29 @@ export class ApiService {
         catchError(this.errorMgmt)
       )
   }
+  // Get recipe
+  GetRecipe(id): Observable<any> {
+    let API_URL = `${this.endpoint}/read-recipe/${id}`;
+    return this.http.get(API_URL, { headers: this.headers })
+      .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
+        catchError(this.errorMgmt)
+      )
+  }
 
   // Update student
   UpdateStudent(id, data): Observable<any> {
     let API_URL = `${this.endpoint}/update-student/${id}`;
+    return this.http.put(API_URL, data, { headers: this.headers })
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+  // Update recipe
+  UpdateRecipe(id, data): Observable<any> {
+    let API_URL = `${this.endpoint}/update-recipe/${id}`;
     return this.http.put(API_URL, data, { headers: this.headers })
       .pipe(
         catchError(this.errorMgmt)

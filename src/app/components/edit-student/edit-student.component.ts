@@ -102,7 +102,7 @@ export class EditStudentComponent implements OnInit {
 
   /* Update book */
   updateStudentForm() {
-    console.log(this.studentForm.value)
+    console.log(this.studentForm.value);
     var id = this.actRoute.snapshot.paramMap.get('id');
     if (window.confirm('Are you sure you want to update?')) {
       this.studentApi.UpdateStudent(id, this.studentForm.value).subscribe( res => {
