@@ -1,5 +1,6 @@
-# PlanB for Action Learning Course
-# Add Recipes and Recipes Lists into the Page
+# Resit Subject : Advanced Web Technologies
+-  View Books and Add Book web pages
+
 
 ## Start MEAN Stack App
 Start Angular app & install required dependencies
