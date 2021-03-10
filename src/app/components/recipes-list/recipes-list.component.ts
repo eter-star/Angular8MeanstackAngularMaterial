@@ -12,7 +12,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class RecipesListComponent implements OnInit {
   RecipeData: any = [];
   dataSource: MatTableDataSource<Recipe>;
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['_id', 'recipe_name', 'recipe_description', 'recipe_category', 'action'];
 
   constructor(private recipeApi: ApiService) {

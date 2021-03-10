@@ -6,18 +6,10 @@
 
 <!-- Form -->
 <div class="inner-wrapper">
-  <form [formGroup]="bookForm" (ngSubmit)="updateBookForm()" #resetBookForm="ngForm" novalidate>
+  <form [formGroup]="bookForm" (ngSubmit)="updateBooksForm()" #resetBookForm="ngForm" novalidate>
     <!-- Left block -->
     <mat-card>
       <div class="controlers-wrapper">
-        <!-- Book Id -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Book id" formControlName="book_id">
-          <mat-error *ngIf="handleError('book_id', 'required')">
-            You must provide a<strong> book id </strong>
-          </mat-error>
-        </mat-form-field>
-
         <!-- Book ISBN -->
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Book isbn" formControlName="book_isbn">

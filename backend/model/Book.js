@@ -5,9 +5,6 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema
 let Book = new Schema({
-  book_id: {
-    type: String
-  },
   book_isbn: {
     type: String
   },

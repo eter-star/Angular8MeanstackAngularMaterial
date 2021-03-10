@@ -9,17 +9,12 @@
 <div class="container" *ngIf="BookData.length > 0">
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="book_id">
+      <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef> Book ID </th>
         <td mat-cell *matCellDef="let element"> {{element._id}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="book_id">
-        <th mat-header-cell *matHeaderCellDef> Book ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.book_id}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="book_name">
+      <ng-container matColumnDef="book_isbn">
         <th mat-header-cell *matHeaderCellDef> Book ISBN </th>
         <td mat-cell *matCellDef="let element"> {{element.book_isbn}} </td>
       </ng-container>
@@ -34,12 +29,17 @@
         <td mat-cell *matCellDef="let element"> {{element.book_author}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="book_publicationdate">
+        <th mat-header-cell *matHeaderCellDef> Book Publication Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.book_publicationdate}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element; let i = index;">
           <button mat-raised-button color="primary" class="push-right"
                   [routerLink]="['/edit-book/', element._id]">Edit</button>
-          <button mat-raised-button color="accent" (click)="deleteBok(i, element)">Delete</button>
+          <button mat-raised-button color="accent" (click)="deleteBook(i, element)">Delete</button>
         </td>
       </ng-container>
 

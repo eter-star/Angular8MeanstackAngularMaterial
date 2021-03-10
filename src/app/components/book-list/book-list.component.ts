@@ -3,7 +3,6 @@ import { ApiService } from './../../shared/api.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import {Student} from "../../shared/student";
 
 @Component({
   selector: 'app-book-list',
@@ -13,8 +12,8 @@ import {Student} from "../../shared/student";
 export class BookListComponent implements OnInit {
   BookData: any = [];
   dataSource: MatTableDataSource<Book>;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  displayedColumns: string[] = ['book_id', 'book_isbn', 'book_title', 'book_author', 'book_publicationdate'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns: string[] = ['_id', 'book_isbn', 'book_title', 'book_author', 'book_publicationdate', 'action'];
 
   constructor(private bookApi: ApiService) {
     this.bookApi.GetBooks().subscribe(data => {

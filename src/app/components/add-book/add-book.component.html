@@ -10,14 +10,6 @@
     <!-- Left block -->
     <mat-card>
       <div class="controlers-wrapper">
-        <!-- ID -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Book id" formControlName="book_id">
-          <mat-error *ngIf="handleError('book_id', 'required')">
-            You must provide a<strong> book id</strong>
-          </mat-error>
-        </mat-form-field>
-
         <!-- ISBN -->
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Book isbn" formControlName="book_isbn">

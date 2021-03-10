@@ -80,7 +80,7 @@ export class AddBookComponent implements OnInit {
   submitBooksForm() {
     if (this.bookForm.valid) {
       this.bookApi.AddBook(this.bookForm.value).subscribe(res => {
-        this.ngZone.run(() => this.router.navigateByUrl('/books-list'))
+        this.ngZone.run(() => this.router.navigateByUrl('/book-list'))
       });
     }
   }
