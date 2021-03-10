@@ -1,0 +1,17 @@
+MEAN stack backend URL:
+
+endpoints: http://localhost:8000/api/books
+
+MEAN stack RESTful APIs using Express JS
+
+RESTful APIs Method API URL
+
+GET /api/books
+
+POST /add-book
+
+GET /read-book/id
+
+PUT /update-book/id
+
+DELETE /delete-book/id
