@@ -29,6 +29,9 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import {MatMenuModule} from '@angular/material';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import { EditBookComponent } from './components/edit-book/edit-book.component';
+import { BookListComponent } from './components/book-list/book-list.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import {MatMenuModule} from '@angular/material';
     EditRecipeComponent,
     RecipesListComponent,
     ShopCartComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    AddBookComponent,
+    EditBookComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,

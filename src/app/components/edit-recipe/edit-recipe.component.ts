@@ -51,7 +51,7 @@ export class EditRecipeComponent implements OnInit {
   }
 
   /* Reactive book form */
-  updateRecipeForm() {
+  updateBookForm() {
     this.recipeForm = this.fb.group({
       recipe_name: ['', [Validators.required]],
       recipe_description: ['', [Validators.required]],

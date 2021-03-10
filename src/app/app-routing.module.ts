@@ -10,12 +10,22 @@ import {RecipesListComponent} from './components/recipes-list/recipes-list.compo
 import {ShopCartComponent} from './components/shop-cart/shop-cart.component';
 import {FileUploadComponent} from './components/file-upload/file-upload.component';
 
+import { AddBookComponent} from './components/add-book/add-book.component';
+import { EditBookComponent} from './components/edit-book/edit-book.component';
+import { BookListComponent} from './components/book-list/book-list.component';
+
+
+
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'add-student' },
   { path: 'add-student', component: AddStudentComponent },
+  { path: 'add-book', component: AddBookComponent },
   { path: 'edit-student/:id', component: EditStudentComponent },
+  { path: 'edit-book/:id', component: EditBookComponent },
   { path: 'edit-recipe/:id', component: EditRecipeComponent },
   { path: 'students-list', component: StudentsListComponent },
+  { path: 'book-list', component: BookListComponent },
   { path: 'add-recipe', component: AddRecipeComponent },
   { path: 'recipes-list', component: RecipesListComponent },
   { path: 'shop-cart', component: ShopCartComponent },

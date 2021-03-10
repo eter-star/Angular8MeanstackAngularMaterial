@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Student } from './student';
+import { Book } from './book';
 import { Recipe } from './recipe';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -25,6 +26,15 @@ export class ApiService {
       )
   }
 
+  // Add book
+  AddBook(data: Book): Observable<any> {
+    let API_URL = `${this.endpoint}/add-book`;
+    return this.http.post(API_URL, data)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
   // Add recipe
   AddRecipe(data: Recipe): Observable<any> {
     let API_URL = `${this.endpoint}/add-recipe`;
@@ -37,6 +47,11 @@ export class ApiService {
   // Get all students
   GetStudents() {
     return this.http.get(`${this.endpoint}/`);
+  }
+
+  // Get all books
+  GetBooks() {
+    return this.http.get(`${this.endpoint}/books`);
   }
 
   // Get all recipes
@@ -55,6 +70,19 @@ export class ApiService {
         catchError(this.errorMgmt)
       )
   }
+
+  // Get book
+  GetBook(id): Observable<any> {
+    let API_URL = `${this.endpoint}/read-book/${id}`;
+    return this.http.get(API_URL, { headers: this.headers })
+      .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
+        catchError(this.errorMgmt)
+      )
+  }
+
   // Get recipe
   GetRecipe(id): Observable<any> {
     let API_URL = `${this.endpoint}/read-recipe/${id}`;
@@ -75,6 +103,16 @@ export class ApiService {
         catchError(this.errorMgmt)
       )
   }
+
+  // Update book
+  UpdateBook(id, data): Observable<any> {
+    let API_URL = `${this.endpoint}/update-book/${id}`;
+    return this.http.put(API_URL, data, { headers: this.headers })
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
   // Update recipe
   UpdateRecipe(id, data): Observable<any> {
     let API_URL = `${this.endpoint}/update-recipe/${id}`;
@@ -92,6 +130,16 @@ export class ApiService {
         catchError(this.errorMgmt)
       )
   }
+
+  // Delete book
+  DeleteBook(id): Observable<any> {
+    var API_URL = `${this.endpoint}/delete-book/${id}`;
+    return this.http.delete(API_URL)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
 
   // Delete recipe
   DeleteRecipe(id): Observable<any> {
