@@ -5,40 +5,53 @@
 </div>
 
 <p *ngIf="BookData.length <= 0" class="no-data">There is no book added yet!</p>
-
+<p></p>
+<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+<p></p>
 <div class="container" *ngIf="BookData.length > 0">
+  <!-- Load icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- The form -->
+  <form class="example" action="action_page.php">
+    <input type="text" placeholder="Search books by title.." name="search" (click)="searchBookByTitle()">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <p></p>
+  <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+  <p></p>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="_id">
-        <th mat-header-cell *matHeaderCellDef> Book ID </th>
+        <th mat-header-cell *matHeaderCellDef> Book ID</th>
         <td mat-cell *matCellDef="let element"> {{element._id}} </td>
       </ng-container>
 
       <ng-container matColumnDef="book_isbn">
-        <th mat-header-cell *matHeaderCellDef> Book ISBN </th>
+        <th mat-header-cell *matHeaderCellDef> Book ISBN</th>
         <td mat-cell *matCellDef="let element"> {{element.book_isbn}} </td>
       </ng-container>
 
       <ng-container matColumnDef="book_title">
-        <th mat-header-cell *matHeaderCellDef> Book Title </th>
+        <th mat-header-cell *matHeaderCellDef> Book Title</th>
         <td mat-cell *matCellDef="let element"> {{element.book_title}} </td>
       </ng-container>
 
       <ng-container matColumnDef="book_author">
-        <th mat-header-cell *matHeaderCellDef> Book Author </th>
+        <th mat-header-cell *matHeaderCellDef> Book Author</th>
         <td mat-cell *matCellDef="let element"> {{element.book_author}} </td>
       </ng-container>
 
       <ng-container matColumnDef="book_publicationdate">
-        <th mat-header-cell *matHeaderCellDef> Book Publication Date </th>
+        <th mat-header-cell *matHeaderCellDef> Book Publication Date</th>
         <td mat-cell *matCellDef="let element"> {{element.book_publicationdate}} </td>
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <th mat-header-cell *matHeaderCellDef> Action</th>
         <td mat-cell *matCellDef="let element; let i = index;">
           <button mat-raised-button color="primary" class="push-right"
-                  [routerLink]="['/edit-book/', element._id]">Edit</button>
+                  [routerLink]="['/edit-book/', element._id]">Edit
+          </button>
           <button mat-raised-button color="accent" (click)="deleteBook(i, element)">Delete</button>
         </td>
       </ng-container>

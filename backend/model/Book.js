@@ -16,7 +16,10 @@ let Book = new Schema({
   },
   book_publicationdate: {
     type: Date
-  }
+  },
+  subjects: {
+    type: Array
+  },
 }, {
   collection: 'books'
 })

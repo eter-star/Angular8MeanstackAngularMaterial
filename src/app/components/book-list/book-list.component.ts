@@ -36,5 +36,10 @@ export class BookListComponent implements OnInit {
       this.bookApi.DeleteBook(e._id).subscribe();
     }
   }
+  searchBookByTitle(){
+    const data = this.dataSource.data;
+    this.dataSource.data = data;
+    this.bookApi.SearchBookByTitle().subscribe();
+  }
 
 }

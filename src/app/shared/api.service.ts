@@ -140,6 +140,10 @@ export class ApiService {
       )
   }
 
+  SearchBookByTitle():Observable<any>{
+    return this.http.get(`${this.endpoint}/recipes`);
+  }
+
 
   // Delete recipe
   DeleteRecipe(id): Observable<any> {

@@ -2,7 +2,7 @@
 <mat-toolbar color="accent" class="header">
   <div>My Library</div>
   <span class="nav-tool-items">
-    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+    <mat-icon (click)="sidenav.toggle()" class="primary">menu</mat-icon>
   </span>
 </mat-toolbar>
 
@@ -12,19 +12,10 @@
     [fixedTopGap]>
     <mat-nav-list>
       <a mat-list-item routerLinkActive="active" routerLink="/book-list">
-        <mat-icon>format_list_bulleted</mat-icon> View Books
+        <mat-icon>home</mat-icon> View Books
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/add-book">
         <mat-icon>book</mat-icon> Add Book
-      </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/recipes-list">
-        <mat-icon>home</mat-icon> View Recipes
-      </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/add-recipe">
-        <mat-icon>add</mat-icon> Add Recipe
-      </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/file-upload">
-        <mat-icon>backup</mat-icon> File Upload
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/add-student">
         <mat-icon>add</mat-icon> Add Student
